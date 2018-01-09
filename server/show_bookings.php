@@ -30,17 +30,6 @@ if($_SESSION["logged_user"] == ""){
 				</div>
 			</div>
 		</section>
-		<?php
-	
-		/*
-		date_default_timezone_set("Asia/Dhaka");
-        $today= date("m/d/Y h:i:sa ");
-		$todaTime2=strtotime("$today");
-		$todaTime=strtotime("now");
-		
-		$tim= int strtotime ( string $today [, int $now = time() ] );
-		*/
-		?>
 
 		<section class="show-bookings">
 			<div class="row">
@@ -54,6 +43,11 @@ if($_SESSION["logged_user"] == ""){
 					<div class="alert alert-success alert-dismissible" role="alert">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<strong>Success!</strong> Booking deleted.
+					</div>
+					<?php }elseif(isset($_SESSION["result"]) && $_SESSION["result"] == 7){ ?>
+					<div class="alert alert-success alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<strong>Success!</strong> Booking updated.
 					</div>
 					<?php } $_SESSION["result"]="";?>
 				</div>
@@ -119,7 +113,7 @@ if($_SESSION["logged_user"] == ""){
 									<td><?php echo $dest[$ab["pickupFrom"]];?></td>
 									<td><?php echo $ab["passengers"];?></td>
 									<td>
-										<!--a href="#">Edit</a-->
+										<a href="update_dashbord_book.php?bookingid=<?php echo $ab["bookingid"];?>">Edit</a>
 										<a href="delete_book.php?bookingid=<?php echo $ab["bookingid"];?>">Delete</a>
 									</td>
 								</tr>

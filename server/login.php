@@ -12,12 +12,10 @@
 			$_SESSION["logged_user"] = $email;
 			header("location: dashboard.php");
 		}else{
-			echo "Email or password may be incorrect.";
-			echo"<li><a href='../index.php'>please try again</a></li>";
-			//header("location: ../index.php");
+			$err = "Email or password may be incorrect.";
+			include("../index.php");
 		}
 			
 	}else{
-		echo"something wrong";
-		header("location: ../index.php");
+		include("../index.php");
 	}

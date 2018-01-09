@@ -8,7 +8,7 @@
 		
 		$run = mysqli_query($con, $sql);
 		if($run){
-			$_SESSION["result"] = 2;
+			$_SESSION["result"] = 7;
 			header("location: show_bookings.php");
 		}else{
 			header("location: show_bookings.php");
